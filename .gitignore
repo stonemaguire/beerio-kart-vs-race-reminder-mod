@@ -1,0 +1,20 @@
+# Build output
+build/
+out/
+
+# Local dumps / extracted game files
+dumps/
+romfs-dump/
+exefs-dump/
+
+# Ghidra projects
+*.gpr
+*.rep/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
