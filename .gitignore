@@ -1,20 +1,17 @@
-# Build output
+# exlaunch build products
 build/
-out/
+deploy/
+*.elf
+*.nso
+*.npdm
+symbols_hash.txt
 
-# Local dumps / extracted game files
+# Game dumps
+mk8dx-dumps/
 dumps/
-romfs-dump/
-exefs-dump/
 
-# Ghidra projects
-*.gpr
-*.rep/
-
-# OS junk
+# OS / IDE
 .DS_Store
 Thumbs.db
-
-# Editor settings
 .vscode/
 .idea/
