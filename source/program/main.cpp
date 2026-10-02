@@ -1,32 +1,24 @@
-#include <stdio.h>
-#include <format>
-
 #include "lib.hpp"
+
 #include "base/pointers.hpp"
 
-HOOK_DEFINE_TRAMPOLINE(LoggerPoC)
-{
-    static void Callback()
-    {
-        Logging.Log("turbo-exlaunch! :^)");
+#include "beerio/hooks.hpp"
 
-        Orig();
-    }
-};
-
-namespace nn::oe
+extern "C" void exl_main(
+    void* x0,
+    void* x1)
 {
-    void Initialize();
-};
+    EXL_UNUSED(x0, x1);
 
-extern "C" void exl_main(void *x0, void *x1)
-{
+    // Required before installing exlaunch hooks.
     exl::hook::Initialize();
 
-    LoggerPoC::InstallAtFuncPtr(nn::oe::Initialize);
-
-    Logging.Log("Patching!");
-
-    // The following is required to run the byte pattern searcher.
+    // Preserve the base-plugin scaffold's pointer initialization.
     base::Pointers::create();
+
+    beerio::hooks::Install();
+
+    Logging.Log(
+        "Beerio VS settings hooks installed."
+    );
 }

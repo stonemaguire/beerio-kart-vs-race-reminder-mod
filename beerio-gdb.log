@@ -1,0 +1,307 @@
+Remote debugging using 192.168.0.114:22225
+pid        command    
+1          Loader     
+2          sm         
+3          spl        
+4          FS         
+6          NCM        
+7          ProcessMana 
+8          ams.mitm   
+81         psc        
+82         pcie       
+83         Bus        
+84         settings   
+85         pcv        
+86         usb        
+89         htc.stub   
+90         LogManager. 
+91         omm        
+92         am         
+93         nvservices 
+94         nvnflinger 
+95         vi         
+96         pgl        
+97         ns         
+98         capmtp     
+99         ptm        
+100        hid        
+101        audio      
+102        wlan.autoge 
+103        bluetooth.a 
+104        bsdsocket  
+105        eth        
+106        nifm       
+107        ldn        
+108        account    
+109        friends    
+110        nfc        
+111        jpegdec    
+112        capsrv     
+113        ssl        
+114        nim        
+115        bcat       
+116        erpt       
+117        es         
+118        pctl       
+119        btm        
+120        eupld      
+121        glue       
+122        npns       
+123        fatal      
+124        ro         
+125        sdb        
+126        olsc       
+127        ngc        
+128        memlet     
+129        grc        
+130        qlaunch    
+131        overlayDisp 
+Ignoring packet error, continuing...
+Ignoring packet error, continuing...
+Send `attach 0x85` to attach.
+Attaching to process 133
+warning: Application: No such file or directory.
+0x0000004813c00000 in ?? ()
+Continuing.
+[New Thread 133.710]
+[New Thread 133.711]
+[New Thread 133.712]
+[New Thread 133.714]
+[New Thread 133.715]
+[New Thread 133.718]
+[New Thread 133.717]
+[New Thread 133.721]
+[New Thread 133.722]
+[New Thread 133.723]
+[New Thread 133.724]
+[New Thread 133.725]
+[New Thread 133.726]
+[New Thread 133.727]
+[New Thread 133.719]
+[New Thread 133.716]
+[New Thread 133.728]
+[New Thread 133.729]
+[New Thread 133.730]
+[New Thread 133.731]
+[New Thread 133.734]
+[New Thread 133.735]
+[New Thread 133.733]
+[New Thread 133.737]
+[New Thread 133.738]
+[New Thread 133.739]
+[New Thread 133.742]
+[New Thread 133.744]
+[New Thread 133.745]
+[New Thread 133.743]
+[New Thread 133.720]
+[New Thread 133.766]
+[New Thread 133.767]
+[New Thread 133.768]
+[New Thread 133.740]
+[New Thread 133.771]
+[New Thread 133.772]
+[New Thread 133.773]
+[New Thread 133.774]
+[New Thread 133.775]
+[New Thread 133.776]
+
+Thread 1 "Thread_0x0000000000" received signal SIGINT, Interrupt.
+0x0000004815c41540 in ?? ()
+Process:     0x85 (Application)
+Program Id:  0x0100152000022000
+Application: 1
+Hbl:         0
+Layout:
+  Alias: 0x15a4a00000 - 0x25a49fffff
+  Heap:  0x5f26000000 - 0x6125ffffff
+  Aslr:  0x0008000000 - 0x7fffffffff
+  Stack: 0x5bc5200000 - 0x5c451fffff
+Modules:
+  0x4813c00000 - 0x4813c01fff nnrtld.elf
+  0x4813c04000 - 0x4814759fff TurboS.nss
+  0x4814f6d000 - 0x4815277fff multimedia.elf
+  0x4815653000 - 0x4815670fff mk8dx-beerio-reminder-vs-race.elf
+  0x4815b90000 - 0x4815f9efff nnSdk.elf
+   0x4814050d40:	b	0x481565a4d0
+   0x4814050d44:	cmp	w8, #0xf
+   0x4814050d48:	b.hi	0x4814050d5c  // b.pmore
+   0x4814050d4c:	adrp	x9, 0x4814b2b000
+   0x4814050d50:	add	x9, x9, #0x460
+   0x4814050d54:	ldr	w0, [x9, w8, sxtw #2]
+   0x4814050d58:	ret
+   0x4814050d5c:	orr	w0, wzr, #0x1
+Hardware assisted breakpoint 1 at 0x4814050d40
+Continuing.
+[New Thread 133.769]
+[New Thread 133.770]
+[New Thread 133.778]
+[New Thread 133.779]
+[New Thread 133.780]
+[New Thread 133.781]
+[New Thread 133.782]
+
+Thread 1 "Thread_0x0000000000" hit Breakpoint 1, 0x0000004814050d40 in ?? ()
+$1 = 16
+$2 = 0x10
+$3 = 0x5f70129e08
+=> 0x4814050d40:	b	0x481565a4d0
+   0x4814050d44:	cmp	w8, #0xf
+   0x4814050d48:	b.hi	0x4814050d5c  // b.pmore
+   0x4814050d4c:	adrp	x9, 0x4814b2b000
+0x000000481565a4d0 in ?? ()
+$4 = 0x481565a4d0
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Please answer y or n.
+Hardware assisted breakpoint 2 at 0x4814050d40
+Type commands for breakpoint(s) 2, one per line.
+End with a line saying just "end".
+Continuing.
+[Thread 133.766 exited]
+[Thread 133.767 exited]
+[Thread 133.768 exited]
+[Thread 133.771 exited]
+[Thread 133.772 exited]
+[Thread 133.773 exited]
+[Thread 133.774 exited]
+[Thread 133.775 exited]
+[Thread 133.776 exited]
+[Thread 133.769 exited]
+[Thread 133.770 exited]
+[Thread 133.778 exited]
+[Thread 133.779 exited]
+[Thread 133.780 exited]
+[Thread 133.781 exited]
+[Thread 133.782 exited]
+[New Thread 133.786]
+[New Thread 133.787]
+[New Thread 133.788]
+[New Thread 133.791]
+[New Thread 133.792]
+[New Thread 133.793]
+[New Thread 133.794]
+[New Thread 133.795]
+[New Thread 133.796]
+[New Thread 133.789]
+[New Thread 133.790]
+[New Thread 133.797]
+[New Thread 133.798]
+[New Thread 133.799]
+[New Thread 133.800]
+[New Thread 133.801]
+[beerio] countOptionToValue option=2
+[Thread 133.786 exited]
+[Thread 133.787 exited]
+[Thread 133.788 exited]
+[Thread 133.791 exited]
+[Thread 133.792 exited]
+[Thread 133.793 exited]
+[Thread 133.794 exited]
+[Thread 133.795 exited]
+[Thread 133.796 exited]
+[Thread 133.789 exited]
+[Thread 133.790 exited]
+[Thread 133.797 exited]
+[Thread 133.798 exited]
+[Thread 133.799 exited]
+[Thread 133.800 exited]
+[Thread 133.801 exited]
+[New Thread 133.805]
+[New Thread 133.806]
+[New Thread 133.807]
+[New Thread 133.810]
+[New Thread 133.811]
+[New Thread 133.812]
+[New Thread 133.813]
+[New Thread 133.814]
+[New Thread 133.815]
+[New Thread 133.808]
+[New Thread 133.809]
+[New Thread 133.816]
+[New Thread 133.817]
+[New Thread 133.818]
+[New Thread 133.819]
+[New Thread 133.820]
+[beerio] countOptionToValue option=9
+[Thread 133.805 exited]
+[Thread 133.806 exited]
+[Thread 133.807 exited]
+[Thread 133.810 exited]
+[Thread 133.811 exited]
+[Thread 133.812 exited]
+[Thread 133.813 exited]
+[Thread 133.814 exited]
+[Thread 133.815 exited]
+[Thread 133.808 exited]
+[Thread 133.809 exited]
+[Thread 133.816 exited]
+[Thread 133.817 exited]
+[Thread 133.818 exited]
+[Thread 133.819 exited]
+[Thread 133.820 exited]
+[New Thread 133.824]
+[New Thread 133.825]
+[New Thread 133.826]
+[New Thread 133.829]
+[New Thread 133.830]
+[New Thread 133.831]
+[New Thread 133.832]
+[New Thread 133.833]
+[New Thread 133.834]
+[New Thread 133.827]
+[New Thread 133.828]
+[New Thread 133.835]
+[New Thread 133.836]
+[New Thread 133.837]
+[New Thread 133.838]
+[New Thread 133.839]
+[beerio] countOptionToValue option=16
+[Thread 133.824 exited]
+[Thread 133.825 exited]
+[Thread 133.826 exited]
+[Thread 133.829 exited]
+[Thread 133.830 exited]
+[Thread 133.831 exited]
+[Thread 133.832 exited]
+[Thread 133.833 exited]
+[Thread 133.834 exited]
+[Thread 133.827 exited]
+[Thread 133.828 exited]
+[Thread 133.835 exited]
+[Thread 133.836 exited]
+[Thread 133.837 exited]
+[Thread 133.838 exited]
+[Thread 133.839 exited]
+[New Thread 133.843]
+[New Thread 133.844]
+[New Thread 133.845]
+[New Thread 133.848]
+[New Thread 133.849]
+[New Thread 133.850]
+[New Thread 133.851]
+[New Thread 133.852]
+[New Thread 133.853]
+
+Thread 1 "Thread_0x0000000000" received signal SIGINT, Interrupt.
+0x0000004815c41540 in ?? ()
+Hardware assisted breakpoint 3 at 0x4814050d40
+Type commands for breakpoint(s) 3, one per line.
+End with a line saying just "end".
+Continuing.
+[New Thread 133.846]
+[New Thread 133.847]
+[New Thread 133.854]
+[New Thread 133.855]
+[New Thread 133.856]
+[New Thread 133.857]
+[New Thread 133.858]
+
+Thread 1 "Thread_0x0000000000" received signal SIGINT, Interrupt.
+0x0000004815c41540 in ?? ()

@@ -98,3 +98,20 @@ RaceSettings::RaceCountOption
 
 ActiveSession::ResolvedRaceCount
     +0x1438
+	
+### Runtime validation — MK8DX 4.0.0
+
+countOptionToValue:
+Ghidra VA:      0x710044CD40
+module offset:  0x44CD40
+
+Runtime test:
+Selecting "96 Races" caused the hook to execute with w1 = 16.
+
+Therefore:
+RaceCountOption 16 = 96 Races
+
+Note:
+Option 15 exists in the internal conversion table and is special-cased by
+other game logic, but it is not a selectable VS Race option in MK8DX 4.0.0.
+Do not currently identify it as a user-facing "No Limit" option.
