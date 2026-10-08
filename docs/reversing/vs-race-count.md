@@ -1,22 +1,29 @@
-# VS Race Count
+# VS Race Count Notes
 
-## MK8DX 4.0.0
+These notes apply to **MK8DX 4.0.0**.
 
-### Count option conversion
+## Visible Local VS values
 
-Update function:
-710044cd40
+The Race Count selector exposes:
 
-Base equivalent:
-6037a4ac
+```text
+4, 6, 8, 12, 16, 24, 32, 48, 96
+```
 
-Base accepts option IDs 1..15.
-Update accepts option IDs 1..16.
+The selector maps its zero-based indexes to internal option IDs:
 
-Mapping:
+```text
+[2, 3, 4, 5, 6, 7, 8, 9, 16]
+```
 
-| Option | Value |
-|---:|---:|
+`96 Races` is internal option ID `16` and was added in 4.0.0.
+
+## Internal option conversion table
+
+The internal conversion function accepts option IDs beyond the values shown in the Local VS selector:
+
+| Option ID | Race count |
+| ---: | ---: |
 | 1 | 1 |
 | 2 | 4 |
 | 3 | 6 |
@@ -34,10 +41,11 @@ Mapping:
 | 15 | 48 |
 | 16 | 96 |
 
-Option 16 was added in update 4.0.0.
+Option `15` exists internally but is **not** a selectable Local VS Race Count in 4.0.0. Do not present it as a user-facing No Limit option.
 
-### Race Count messages
+## Message IDs
 
+```text
 2  -> 0xA2A -> 4 Races
 3  -> 0xA2C -> 6 Races
 4  -> 0xA2D -> 8 Races
@@ -46,72 +54,27 @@ Option 16 was added in update 4.0.0.
 7  -> 0xA30 -> 24 Races
 8  -> 0xA31 -> 32 Races
 9  -> 0xA32 -> 48 Races
-15 -> 0xA33 -> No Limit
+15 -> 0xA33 -> internal/special case
 16 -> 0xA34 -> 96 Races
+```
 
-0xA34 is absent from base and present in update 4.0.0.
+`0xA34` is absent from the base game data and present in update 4.0.0.
 
-### Packed VS rules
+## Packed VS rules
 
-Packed options live in a uint32 at +0x10.
-Each option occupies four bits.
+Packed options live in a `uint32` at `+0x10`, with four bits per option. Packed slot 7 is Race Count.
 
-Packed slot 7 is Race Count.
+A four-bit slot can represent only `0..15`, so option ID `16` cannot be represented by the legacy packed slot and must be handled by the newer 4.0.0 path.
 
-Because four bits can only encode 0..15,
-option 16 cannot be represented by the legacy packed slot.
+## Relevant update offsets
 
-### addresses
+| Symbol / purpose | Module offset |
+| --- | ---: |
+| Race Count selected-index to option ID | `0x44CB78` |
+| Race Count option to value | `0x44CD40` |
+| Race Count option text | `0x44CCC8` |
+| Race Count row input handler | `0x44E660` |
+| VS settings row configuration | `0x463BE4` |
+| VS settings active-list range | `0x453E28` |
 
-getRaceSettings
-    71004245d4
-
-copyRaceSettings
-    7100424130
-
-loadRaceSettings
-    710042406c
-
-countOptionToValue
-    710044cd40
-
-getRaceCountOptionText
-    710044ccc8
-
-getPackedRuleOption
-    71008488b8
-
-applyRaceSettings
-    7100501008
-
-RaceCountMessageIds
-    7100f273e0
-
-RaceCountMessageId96
-    7100f27418
-
-CountOptionValues
-    7100f27460
-
-RaceSettings::RaceCountOption
-    +0x38
-
-ActiveSession::ResolvedRaceCount
-    +0x1438
-	
-### Runtime validation — MK8DX 4.0.0
-
-countOptionToValue:
-Ghidra VA:      0x710044CD40
-module offset:  0x44CD40
-
-Runtime test:
-Selecting "96 Races" caused the hook to execute with w1 = 16.
-
-Therefore:
-RaceCountOption 16 = 96 Races
-
-Note:
-Option 15 exists in the internal conversion table and is special-cased by
-other game logic, but it is not a selectable VS Race option in MK8DX 4.0.0.
-Do not currently identify it as a user-facing "No Limit" option.
+Additional addresses used by the mod are documented in `include/beerio/addresses.hpp`.

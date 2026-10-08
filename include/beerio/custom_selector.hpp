@@ -12,7 +12,7 @@ struct CustomSelector
 
     // Used for generated value strings such as:
     //
-    // "Every 32nd Race"
+    // "Every 32 Races"
     // "27th Race"
     //
     // 32 UTF-16 code units is comfortably larger than anything

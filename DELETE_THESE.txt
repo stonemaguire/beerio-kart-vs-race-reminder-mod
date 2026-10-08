@@ -1,0 +1,19 @@
+Remove these local/generated files before the first public commit if they exist:
+
+.venv/
+build/
+deploy/
+romfs/UI/USen/message.sarc
+romfs/UI/USen/message.sarc.*
+beerio-gdb.log
+gdb-connect.txt
+message.remote.sarc
+flow
+page
+symbols_hash.txt
+mk8dx-beerio-reminder-vs-race.elf
+docs/.gitkeep
+tools/.gitkeep
+include/.gitkeep
+
+The updated .gitignore prevents these from being re-added accidentally.

@@ -1,4 +1,5 @@
 #include "beerio/custom_selector.hpp"
+#include "beerio/text_config.hpp"
 
 #include <array>
 #include <cstddef>
@@ -49,7 +50,7 @@ const char16_t* FrequencyLabel(
 {
     (void)selector;
 
-    return u"Beerio Race Frequency";
+    return text_config::FrequencyLabel;
 }
 
 const char16_t* FrequencyStartLabel(
@@ -57,7 +58,7 @@ const char16_t* FrequencyStartLabel(
 {
     (void)selector;
 
-    return u"Beerio Race Start";
+    return text_config::FrequencyStartLabel;
 }
 
 char16_t* AppendString(
@@ -155,14 +156,17 @@ const char16_t* IntegerOptionToText(
 
     // Frequency:
     //
-    //     Every 32nd Race
+    //     Every 1 Race
+    //     Every 2 Races
     //
     // Frequency Start:
     //
     //     27th Race
-    if (selector ==
-        &gFrequency.base) {
+    const bool isFrequency =
+        selector ==
+            &gFrequency.base;
 
+    if (isFrequency) {
         output =
             AppendString(
                 output,
@@ -176,17 +180,34 @@ const char16_t* IntegerOptionToText(
             value
         );
 
-    output =
-        AppendString(
-            output,
-            OrdinalSuffix(value)
-        );
+    if (isFrequency) {
+        output =
+            AppendString(
+                output,
+                u" Race"
+            );
 
-    output =
-        AppendString(
-            output,
-            u" Race"
-        );
+        if (value != 1) {
+            output =
+                AppendString(
+                    output,
+                    u"s"
+                );
+        }
+    }
+    else {
+        output =
+            AppendString(
+                output,
+                OrdinalSuffix(value)
+            );
+
+        output =
+            AppendString(
+                output,
+                u" Race"
+            );
+    }
 
     *output = u'\0';
 

@@ -8,6 +8,7 @@ NPDM_JSON_PATH := $(MISC_PATH)/npdm-json
 
 # To configure exlaunch, edit config.mk.
 include $(PWD)/config.mk
+-include $(PWD)/config.local.mk
 
 # Define common variables.
 NAME := $(shell basename $(PWD))

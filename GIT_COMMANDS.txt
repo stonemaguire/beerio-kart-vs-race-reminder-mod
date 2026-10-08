@@ -1,0 +1,25 @@
+After copying the update files into your existing repository:
+
+1. Normalize the Makefile name in Git (important because the old index used "MakeFile"):
+
+   git config core.ignorecase false
+   git mv -f Makefile Makefile.tmp
+   git mv -f Makefile.tmp Makefile
+
+2. Record cleanup and all new/updated files:
+
+   git add -A
+   git status
+
+3. Review the diff before committing:
+
+   git diff --cached
+
+4. Commit/tag/push when satisfied. Example:
+
+   git commit -m "Prepare v1.0.0 public release"
+   git tag v1.0.0
+   git push origin HEAD
+   git push origin v1.0.0
+
+Do not commit a generated Nintendo message.sarc to the source repository.

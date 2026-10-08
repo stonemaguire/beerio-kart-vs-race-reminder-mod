@@ -32,10 +32,10 @@ MOUNT_PATH := /mnt/k
 #------------------------
 
 # Settings for deploying over FTP. Used by the deploy-ftp.py script.
-FTP_IP := 192.168.0.235
+FTP_IP := 192.168.0.100
 FTP_PORT := 5000
 FTP_USERNAME := anonymous
 FTP_PASSWORD :=
 
 # Settings for deploying to Ryu. Used by the deploy-ryu.sh script.
-RYU_PATH := /mnt/c/Users/shado/AppData/Roaming/Ryujinx
+RYU_PATH := /path/to/Ryujinx

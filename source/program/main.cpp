@@ -19,6 +19,6 @@ extern "C" void exl_main(
     beerio::hooks::Install();
 
     Logging.Log(
-        "Beerio VS settings hooks installed."
+        "Beerio VS settings and race gate hooks installed."
     );
 }

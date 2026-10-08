@@ -1,17 +1,55 @@
-# exlaunch build products
-build/
-deploy/
+# Build products
+/build/
+/deploy/
 *.elf
 *.nso
 *.npdm
-symbols_hash.txt
+*.o
+*.d
+*.map
+*.lst
+/symbols_hash.txt
 
-# Game dumps
-mk8dx-dumps/
-dumps/
+# Generated / extracted game files
+/romfs/UI/*/message.sarc
+/romfs/UI/*/message.sarc.*
+/message.remote.sarc
+/mk8dx-dumps/
+/dumps/
+/game-dump/
 
-# OS / IDE
+# Local developer configuration
+/config.local.mk
+.env
+.env.*
+!.env.example
+
+# Python
+/.venv/
+/venv/
+__pycache__/
+*.py[cod]
+
+# Debugging / scratch files
+*.log
+/gdb-connect.txt
+/flow
+/page
+/core
+/core.*
+
+# Release staging
+/dist/
+/release/
+
+# IDE / editor
+/.vscode/
+/.idea/
+*.swp
+*.swo
+*~
+
+# OS metadata
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
+desktop.ini
